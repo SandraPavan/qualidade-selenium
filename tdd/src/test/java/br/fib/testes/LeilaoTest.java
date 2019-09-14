@@ -2,6 +2,7 @@ package br.fib.testes;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import br.fib.modelo.Lance;
@@ -10,10 +11,19 @@ import br.fib.modelo.Usuario;
 
 public class LeilaoTest {
 
+	private Usuario steveJobs;
+	private Usuario billGates;
+	private Leilao leilao;
+
+	@Before
+	public void criaAvaliador() {
+		this.steveJobs = new Usuario("Steve Jobs");
+		this.billGates = new Usuario("Bill Gates");
+		this.leilao = new Leilao("Macbook Pro 15");
+	}
+
 	@Test
 	public void naoDeveAceitarDoisLancesSeguidosDoMesmoUsuario() {
-		Leilao leilao = new Leilao("Macbook Pro 15");
-		Usuario steveJobs = new Usuario("Steve Jobs");
 		leilao.propoe(new Lance(steveJobs, 2000));
 		leilao.propoe(new Lance(steveJobs, 3000));
 		assertEquals(1, leilao.getLances().size());
@@ -22,9 +32,6 @@ public class LeilaoTest {
 
 	@Test
 	public void naoDeveAceitarMaisDoQue5LancesDeUmMesmoUsuario() {
-		Leilao leilao = new Leilao("Macbook Pro 15");
-		Usuario steveJobs = new Usuario("Steve Jobs");
-		Usuario billGates = new Usuario("Bill Gates");
 
 		leilao.propoe(new Lance(steveJobs, 2000));
 		leilao.propoe(new Lance(billGates, 3000));
