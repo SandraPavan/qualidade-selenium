@@ -13,7 +13,7 @@ public class TesteAutomatizado {
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.google.com.br");
 		WebElement campoDeTexto = driver.findElement(By.name("q"));
-		campoDeTexto.sendKeys("brasil");
+		campoDeTexto.sendKeys("fib");
 		campoDeTexto.submit();
 	}
 }
