@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -79,8 +80,8 @@ public class CalculoSalarioTest {
 		assertTrue(achouNome);
 	}
 
-	// @After
-	// public void encerra() {
-	// driver.close();
-	// }
+	@After
+	public void encerra() {
+		driver.close();
+	}
 }
